@@ -2,55 +2,79 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Find My Phone – All in One Lost Phone Portal</title>
+<title>Find My Phone – Lost Phone Help Portal</title>
+
+<meta name="description" content="Find My Phone is a free lost phone help portal. IMEI save, police GD guide, SIM block help. No tracking.">
+<meta name="keywords" content="find my phone, lost phone bd, imei save, phone lost help">
+<meta name="author" content="Shakil Hasan">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+
+<!-- Google AdSense (replace later with your ID) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body>
 
 <header>
   <h1>📱 Find My Phone</h1>
-  <p>All-in-One Lost Phone Help Center</p>
+  <p id="subtitle">Lost Phone Help Portal</p>
+
+  <select onchange="changeCountry(this.value)">
+    <option value="bd">Bangladesh 🇧🇩</option>
+    <option value="global">Global 🌍</option>
+  </select>
+
+  <button onclick="toggleLang()">বাংলা / English</button>
 </header>
 
 <section class="box">
-  <h2>🔍 Track Using Official Services</h2>
-  <a href="https://www.google.com/android/find" target="_blank">Android – Google Find My Device</a>
-  <a href="https://www.icloud.com/find" target="_blank">iPhone – iCloud Find</a>
+  <h2>⚡ Quick Actions</h2>
+  <a href="https://www.google.com/android/find" target="_blank">Android – Find My Device</a>
+  <a href="https://www.icloud.com/find" target="_blank">iPhone – Find My iPhone</a>
 </section>
 
 <section class="box">
-  <h2>📝 Save Your IMEI (Safe)</h2>
-  <input id="imei" placeholder="Enter IMEI (15 digits)">
+  <h2>🔐 IMEI Vault</h2>
+  <input id="imei" placeholder="IMEI (15 digits)">
+  <input id="model" placeholder="Phone Model">
   <button onclick="saveIMEI()">Save IMEI</button>
-  <p id="saved"></p>
+  <ul id="imeiList"></ul>
 </section>
 
 <section class="box">
-  <h2>🚨 What To Do If Phone Is Lost</h2>
-  <ul>
-    <li>✔ Turn on Find My Device / iCloud</li>
-    <li>✔ Block SIM immediately</li>
-    <li>✔ File GD at nearest police station</li>
-    <li>✔ Keep IMEI safe</li>
-  </ul>
+  <h2>🚨 Lost Phone Checklist</h2>
+  <label><input type="checkbox"> Block SIM</label><br>
+  <label><input type="checkbox"> Use Find My Device</label><br>
+  <label><input type="checkbox"> File GD</label>
 </section>
 
 <section class="box">
-  <h2>📞 SIM Operator Help (Bangladesh)</h2>
-  <ul>
+  <h2 id="countryHelp">🇧🇩 Bangladesh Help</h2>
+  <ul id="helpList">
+    <li>Police: 999</li>
     <li>Grameenphone: 121</li>
     <li>Robi: 123</li>
-    <li>Banglalink: 121</li>
-    <li>Teletalk: 121</li>
   </ul>
 </section>
 
+<section class="box">
+  <h2>❤️ Support This Project</h2>
+  <p>bKash: 01760412218</p>
+  <p>Nagad: 01760412218</p>
+  
+
 <footer>
-  <p>⚠️ We do NOT track phones or collect data.</p>
-  <p>This site only provides legal & official guidance.</p>
+  <p>⚠️ No tracking. No data collection.</p>
+  <p>© Find My Phone</p>
 </footer>
 
 <script src="app.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
 </body>
 </html>
